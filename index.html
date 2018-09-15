@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
     <title>Open Beach</title>
@@ -18,10 +18,6 @@
 </nav>
 
 <div class="container">
-    <ul id="beach-list-item" class="template">
-        <li class="btn btn-secondary w-100"></li>
-    </ul>
-
     <div id="page-loader" class="page">
         <p>Loading...</p>
     </div>
@@ -29,7 +25,50 @@
         <ul class="beach-list btn-group-vertical w-100">
         </ul>
     </div>
+
+    <div id="page-item" class="page">
+        <button class="map btn btn-outline-secondary float-right">Map</button>
+        <h2></h2>
+
+        <div class="air">
+        </div>
+
+        <div class="water">
+        </div>
+
+        <div class="photos">
+            <p>Photos</p>
+            <ul class="d-flex flex-wrap"></ul>
+        </div>
+    </div>
 </div>
+
+<!-- templates -->
+<ul id="beach-list-item" class="template">
+    <li class="btn btn-secondary w-100"></li>
+</ul>
+
+<div id="beach-item-air" class="template">
+    <p>Air</p>
+    <ul>
+        <li>Temperature: %air.temperature%°C</li>
+        <li>Humidity: %air.humidity%%</li>
+        <li>Wind: %air.windSpeed% m/s, %air.windDirection%</li>
+        <li>Pollution level: %air.pollution%</li>
+    </ul>
+</div>
+
+<div id="beach-item-water" class="template">
+    <p>Water</p>
+    <ul>
+        <li>Temperature: %water.temperature%°C</li>
+        <li>Pollution level: %water.pollution%</li>
+    </ul>
+</div>
+
+<ul id="beach-item-photo" class="template">
+    <li><img class="img-fluid" src=""></li>
+</ul>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

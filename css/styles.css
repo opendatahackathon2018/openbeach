@@ -11,3 +11,8 @@ body {
 .template {
     display: none;
 }
+
+#page-item .photos li {
+    list-style: none;
+    min-width: 150px;
+}

@@ -15,9 +15,9 @@
       "pollution": 4
     },
     "photos": [
-      "https://example.com/image.jpg",
-      "https://example.com/image.jpg",
-      "https://example.com/image.jpg"
+      "https://picsum.photos/150/100?image=1000",
+      "https://picsum.photos/150/100?image=1001",
+      "https://picsum.photos/150/100?image=1002"
     ]
   },
   {
@@ -36,9 +36,15 @@
       "pollution": 4
     },
     "photos": [
-      "https://example.com/image.jpg",
-      "https://example.com/image.jpg",
-      "https://example.com/image.jpg"
+      "https://picsum.photos/150/100?image=1003",
+      "https://picsum.photos/150/100?image=1004",
+      "https://picsum.photos/150/100?image=1005",
+      "https://picsum.photos/150/100?image=1006",
+      "https://picsum.photos/150/100?image=1012",
+      "https://picsum.photos/150/100?image=1008",
+      "https://picsum.photos/150/100?image=1009",
+      "https://picsum.photos/150/100?image=1010",
+      "https://picsum.photos/150/100?image=1011"
     ]
   }
 ]

@@ -8,10 +8,14 @@ const App = {
   state: {
     page: 'list',
     beaches: [],
+    beachId: null,
   },
 
   setState: state => {
     $.extend(App.state, state);
+
+    console.log('setState', App.state);
+
     App.render();
   },
 
@@ -25,6 +29,9 @@ const App = {
   },
 
   init: () => {
+    // Set handlers
+    $('#page-item button.map').on('click', App.onMapButtonClick);
+
     App.setState({ page: App.PAGES.LOADER });
 
     App
@@ -48,6 +55,32 @@ const App = {
     const { beachId } = $(event.target).data();
 
     console.log({ beachId });
+
+    App.setState({
+      page: App.PAGES.ITEM,
+      beachId,
+    });
+  },
+
+  onMapButtonClick: () => {
+    const beachId = App.state.beachId;
+    const beach = App.getBeachById(beachId);
+    const [lat, lon] = beach.location;
+    const url = `https://www.google.com/maps/@${lat},${lon}`;
+
+    window.open(url);
+  },
+
+  getBeachById: id => {
+    return App.state.beaches.find(item => item.id === id);
+  },
+
+  replacePlaceholders: (element, placeholders) => {
+    const html = element
+      .html()
+      .replace(/%[\w\\.]+%/g, id => placeholders[id] || id);
+
+    element.html(html);
   },
 
   render: () => {
@@ -68,6 +101,57 @@ const App = {
         });
 
         App.showPage(App.PAGES.LIST);
+        break;
+      }
+
+      case App.PAGES.ITEM: {
+        const page = $('#page-item');
+        const titleContainer = page.find('h2');
+        const airContainer = page.find('.air');
+        const waterContainer = page.find('.water');
+        const photosContainer = page.find('.photos');
+        const airTemplate = $('#beach-item-air');
+        const waterTemplate = $('#beach-item-water');
+
+        const beachId = App.state.beachId;
+        const beach = App.getBeachById(beachId);
+
+        titleContainer.text(beach.name);
+
+        airContainer.html(airTemplate.html());
+        App.replacePlaceholders(airContainer, {
+          '%air.temperature%': beach.air.temperature,
+          '%air.humidity%': beach.air.humidity,
+          '%air.windSpeed%': beach.air.windSpeed,
+          '%air.windDirection%': beach.air.windDirection,
+          '%air.pollution%': beach.air.pollution,
+        });
+
+        waterContainer.html(waterTemplate.html());
+        App.replacePlaceholders(waterContainer, {
+          '%water.temperature%': beach.water.temperature,
+          '%water.pollution%': beach.water.pollution,
+        });
+
+        if (beach.photos) {
+          const photosList = photosContainer.find('ul');
+          const photoItemTemplate = $('#beach-item-photo > li');
+
+          photosList.html('');
+
+          $.each(beach.photos, (i, url) => {
+            const photoItem = photoItemTemplate.clone();
+            photoItem.find('img').prop('src', url);
+            photoItem.appendTo(photosList);
+          });
+
+          photosContainer.show();
+        } else {
+          photosContainer.hide();
+        }
+
+        App.showPage(App.PAGES.ITEM);
+        break;
       }
     }
 

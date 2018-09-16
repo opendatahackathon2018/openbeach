@@ -11,17 +11,66 @@ body {
     display: none;
 }
 
-#page-item .photos li {
+#page-list ul.beach-list > li {
+    list-style: none;
+    width: 180px;
+    height: 120px;
+    margin: 0.5em 1ex;
+    padding: 0.5em 1ex;
+    background-color: #369;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#page-item .photos ul > li {
     list-style: none;
     min-width: 150px;
     max-height: 100px;
 }
 
-nav { cursor: pointer; }
-nav button.back { font-family: Roboto sans-serif; display: none }
+nav {
+    cursor: pointer;
+}
 
-.pollution { padding: 0 1ex; }
-.pollution.pollution-level-1 { background-color: lightgreen; }
-.pollution.pollution-level-2 { background-color: lightyellow; }
-.pollution.pollution-level-3 { background-color: lightsalmon; }
-.pollution.pollution-level-4 { background-color: lightcoral; }
+nav button.back {
+    font-family: Roboto sans-serif;
+    display: none
+}
+
+.pollution {
+    padding: 0 1ex;
+}
+
+.pollution.pollution-level-1 {
+    background-color: lightgreen;
+}
+
+.pollution.pollution-level-2 {
+    background-color: lightyellow;
+}
+
+.pollution.pollution-level-3 {
+    background-color: lightsalmon;
+}
+
+.pollution.pollution-level-4 {
+    background-color: lightcoral;
+}
+
+/* theme */
+body {
+    /*background-color: #023;*/
+    /*color: lightgrey;*/
+}
+
+.navbar {
+    background-color: #123 !important;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}

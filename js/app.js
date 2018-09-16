@@ -105,6 +105,8 @@ const App = {
           beachItem.data('beachId', beach.id);
           beachItem.text(beach.name);
           beachItem.on('click', App.onBeachItemClick);
+          console.log({ beachId: beach.id, backgroundImage: beach.photos[0] });
+          beachItem.css({ backgroundImage: `url('${beach.photos[0]}')` });
           beachItem.appendTo(beachList);
         });
 

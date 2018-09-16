@@ -1,6 +1,10 @@
 /* Show it is fixed to the top */
 body {
-    padding-top: 4.5rem;
+    padding-top: 84px;
+}
+
+ul {
+    padding: 0;
 }
 
 .page {
@@ -24,6 +28,16 @@ body {
     overflow: hidden;
     cursor: pointer;
     position: relative;
+}
+
+@media (max-width:480px) {
+    #page-list ul.beach-list > li {
+        width: 150px;
+        height: 100px;
+        margin: 4px;
+        padding: 4px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
 }
 
 #page-list ul.beach-list > li .name {
@@ -51,7 +65,24 @@ body {
     bottom: 0;
 }
 
-#page-list ul.beach-list > li .rating .icon {
+#page-list .legend {
+    margin-top: 100px;
+}
+
+#page-list .legend .rating {
+    position: relative;
+}
+
+#page-list .legend ul {
+    display: inline-block;
+}
+
+#page-list .legend ul > li {
+    list-style: none;
+    padding-right: 30px;
+}
+
+.rating .icon {
     position: absolute;
     right: 8px;
     top: 8px;
@@ -144,7 +175,7 @@ body {
 }
 
 .navbar {
-    background-color: transparent !important;
+    background-color: #fff !important;
 }
 
 .navbar-brand img {

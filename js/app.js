@@ -53,7 +53,12 @@ const App = {
   },
 
   onBeachItemClick: event => {
-    const { beachId } = $(event.target).data();
+    console.log({ event });
+    const eventTarget = $(event.target);
+    const target = eventTarget.is('li')
+      ? eventTarget
+      : eventTarget.parents('li');
+    const { beachId } = target.data();
 
     App.setState({
       page: App.PAGES.ITEM,
@@ -103,9 +108,11 @@ const App = {
         $.each(App.state.beaches, (i, beach) => {
           const beachItem = beachItemTemplate.clone();
           beachItem.data('beachId', beach.id);
-          beachItem.text(beach.name);
+          beachItem.find('.name').text(beach.name);
+          App.replacePlaceholders(beachItem, {
+            '%rating%': beach.air.pollution,
+          });
           beachItem.on('click', App.onBeachItemClick);
-          console.log({ beachId: beach.id, backgroundImage: beach.photos[0] });
           beachItem.css({ backgroundImage: `url('${beach.photos[0]}')` });
           beachItem.appendTo(beachList);
         });

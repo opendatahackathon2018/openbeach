@@ -15,6 +15,10 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <h1 class="navbar-brand">Open Beach</h1>
+
+    <div class="navbar-nav">
+        <button class="back btn btn-outline-secondary">◀</button>
+    </div>
 </nav>
 
 <div class="container">
@@ -27,7 +31,7 @@
     </div>
 
     <div id="page-item" class="page">
-        <button class="map btn btn-outline-secondary float-right">Map</button>
+        <button class="map btn btn-info float-right">Map</button>
         <h2></h2>
 
         <div class="air">
@@ -54,7 +58,7 @@
         <li>Temperature: %air.temperature%°C</li>
         <li>Humidity: %air.humidity%%</li>
         <li>Wind: %air.windSpeed% m/s, %air.windDirection%</li>
-        <li>Pollution level: %air.pollution%</li>
+        <li>Pollution level: <span class="pollution pollution-level-%air.pollution%">%air.pollution%</span></li>
     </ul>
 </div>
 
@@ -62,7 +66,7 @@
     <p>Water</p>
     <ul>
         <li>Temperature: %water.temperature%°C</li>
-        <li>Pollution level: %water.pollution%</li>
+        <li>Pollution level:  <span class="pollution pollution-level-%water.pollution%">%water.pollution%</span></li>
     </ul>
 </div>
 

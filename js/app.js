@@ -31,6 +31,7 @@ const App = {
   init: () => {
     // Set handlers
     $('#page-item button.map').on('click', App.onMapButtonClick);
+    $('nav').on('click', App.onNavBarClick);
 
     App.setState({ page: App.PAGES.LOADER });
 
@@ -54,11 +55,16 @@ const App = {
   onBeachItemClick: event => {
     const { beachId } = $(event.target).data();
 
-    console.log({ beachId });
-
     App.setState({
       page: App.PAGES.ITEM,
       beachId,
+    });
+  },
+
+  onNavBarClick: () => {
+    App.setState({
+      page: App.PAGES.LIST,
+      beachId: null,
     });
   },
 
@@ -84,6 +90,8 @@ const App = {
   },
 
   render: () => {
+    const backButton = $('nav button.back');
+
     switch (App.state.page) {
       case App.PAGES.LIST: {
         const beachList = $('#page-list .beach-list');
@@ -101,6 +109,7 @@ const App = {
         });
 
         App.showPage(App.PAGES.LIST);
+        backButton.hide();
         break;
       }
 
@@ -118,12 +127,50 @@ const App = {
 
         titleContainer.text(beach.name);
 
+
+        let windDirectionIcon;
+
+        switch (beach.air.windDirection) {
+          case 'N': {
+            windDirectionIcon = '↑';
+            break;
+          }
+          case 'NE': {
+            windDirectionIcon = '↗';
+            break;
+          }
+          case 'E': {
+            windDirectionIcon = '→';
+            break;
+          }
+          case 'SE': {
+            windDirectionIcon = '↘';
+            break;
+          }
+          case 'S': {
+            windDirectionIcon = '↓';
+            break;
+          }
+          case 'SW': {
+            windDirectionIcon = '↙';
+            break;
+          }
+          case 'W': {
+            windDirectionIcon = '←';
+            break;
+          }
+          case 'NW': {
+            windDirectionIcon = '↖';
+            break;
+          }
+        }
+
         airContainer.html(airTemplate.html());
         App.replacePlaceholders(airContainer, {
           '%air.temperature%': beach.air.temperature,
           '%air.humidity%': beach.air.humidity,
           '%air.windSpeed%': beach.air.windSpeed,
-          '%air.windDirection%': beach.air.windDirection,
+          '%air.windDirection%': `${beach.air.windDirection} ${windDirectionIcon}`,
           '%air.pollution%': beach.air.pollution,
         });
 
@@ -151,6 +198,7 @@ const App = {
         }
 
         App.showPage(App.PAGES.ITEM);
+        backButton.show();
         break;
       }
     }

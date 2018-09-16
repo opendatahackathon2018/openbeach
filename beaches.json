@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Beach Name 1",
+    "name": "Saint Rafael",
     "location": [33.123456, 34.123456],
     "air": {
       "temperature": 33.4,
       "humidity": 0.83,
       "windSpeed": 5,
-      "windDirection": 240,
+      "windDirection": "N",
       "pollution": 1
     },
     "water": {
@@ -22,13 +22,13 @@
   },
   {
     "id": 2,
-    "name": "Beach Name 2",
+    "name": "Four Seasons",
     "location": [33.123456, 34.123456],
     "air": {
       "temperature": 33.4,
       "humidity": 0.83,
       "windSpeed": 5,
-      "windDirection": 240,
+      "windDirection": "SE",
       "pollution": 1
     },
     "water": {

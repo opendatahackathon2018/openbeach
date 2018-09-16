@@ -16,3 +16,12 @@ body {
     list-style: none;
     min-width: 150px;
 }
+
+nav { cursor: pointer; }
+nav button.back { font-family: Roboto sans-serif; display: none }
+
+.pollution { padding: 0 1ex; }
+.pollution.pollution-level-1 { background-color: lightgreen; }
+.pollution.pollution-level-2 { background-color: lightyellow; }
+.pollution.pollution-level-3 { background-color: lightsalmon; }
+.pollution.pollution-level-4 { background-color: lightcoral; }

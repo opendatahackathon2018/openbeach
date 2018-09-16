@@ -72,7 +72,7 @@ const App = {
     const beachId = App.state.beachId;
     const beach = App.getBeachById(beachId);
     const [lat, lon] = beach.location;
-    const url = `https://www.google.com/maps/@${lat},${lon}`;
+    const url = `https://www.google.com/maps/place/${lat},${lon}`;
 
     window.open(url);
   },

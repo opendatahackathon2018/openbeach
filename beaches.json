@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Saint Rafael",
-    "location": [33.123456, 34.123456],
+    "location": [34.7097994,33.1627163],
     "air": {
       "temperature": 33.4,
       "humidity": 0.83,
@@ -23,7 +23,7 @@
   {
     "id": 2,
     "name": "Four Seasons",
-    "location": [33.123456, 34.123456],
+    "location": [34.7080064,33.1276163],
     "air": {
       "temperature": 33.4,
       "humidity": 0.83,

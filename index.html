@@ -15,37 +15,35 @@
 <body>
 
 <nav class="navbar navbar-light fixed-top bg-light">
-    <h1 class="navbar-brand">Open Beach</h1>
+    <h1 class="navbar-brand"><img src="logo.png" alt="Open Beach"></h1>
 
     <div class="nav navbar-nav btn-nav navbar-right">
         <button class="back btn btn-outline-secondary">◀</button>
     </div>
 </nav>
 
-<div class="container">
-    <div id="page-loader" class="page">
-        <p>Loading...</p>
+<div id="page-loader" class="page container-fluid">
+    <p>Loading...</p>
+</div>
+
+<div id="page-list" class="page container-fluid">
+    <ul class="beach-list d-flex flex-wrap">
+    </ul>
+</div>
+
+<div id="page-item" class="page container">
+    <button class="map btn btn-info float-right">Map</button>
+    <h2></h2>
+
+    <div class="air">
     </div>
 
-    <div id="page-list" class="page">
-        <ul class="beach-list d-flex flex-wrap">
-        </ul>
+    <div class="water">
     </div>
 
-    <div id="page-item" class="page">
-        <button class="map btn btn-info float-right">Map</button>
-        <h2></h2>
-
-        <div class="air">
-        </div>
-
-        <div class="water">
-        </div>
-
-        <div class="photos">
-            <p>Photos</p>
-            <ul class="d-flex flex-wrap"></ul>
-        </div>
+    <div class="photos">
+        <p>Photos</p>
+        <ul class="d-flex flex-wrap"></ul>
     </div>
 </div>
 

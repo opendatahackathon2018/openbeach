@@ -111,6 +111,7 @@ const App = {
           beachItem.find('.name').text(beach.name);
           App.replacePlaceholders(beachItem, {
             '%rating%': beach.air.pollution,
+            '%air.temperature%': beach.air.temperature,
           });
           beachItem.on('click', App.onBeachItemClick);
           beachItem.css({ backgroundImage: `url('${beach.photos[0]}')` });

@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -51,8 +52,14 @@
 <!-- templates -->
 <ul id="beach-list-item" class="template">
     <li>
-        <span class="name"></span>
-        <div class="rating rating-%rating%"><div>●</div></div>
+        <div class="name"></div>
+        <div class="rating rating-%rating%">
+            <div class="icon"></div>
+        </div>
+        <div class="water-temperature">
+            <span class="icon"></span>
+            <span>%air.temperature%°C</span>
+        </div>
     </li>
 </ul>
 

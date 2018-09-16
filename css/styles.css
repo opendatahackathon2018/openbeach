@@ -24,6 +24,7 @@ body {
     overflow: hidden;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 2px #666;
 }
 
 #page-item .photos ul > li {
